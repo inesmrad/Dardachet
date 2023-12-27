@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Room">
+   <center>
+      <Pane fx:id="chat" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #E8E1E1;" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="msgRoom" layoutX="210.0" layoutY="52.0" prefHeight="295.0" prefWidth="380.0">
+               <font>
+                  <Font name="Segoe UI Emoji" size="12.0" />
+               </font></TextArea>
+            <Pane layoutX="129.0" layoutY="360.0" prefHeight="44.0" prefWidth="472.0" style="-fx-background-color: #74575F;">
+               <children>
+                  <TextField fx:id="msgField" layoutX="90.0" layoutY="10.0" onKeyPressed="#sendMessageByKey" prefHeight="25.0" prefWidth="325.0" promptText="write a message here ...">
+                     <font>
+                        <Font name="Segoe UI Emoji" size="12.0" />
+                     </font></TextField>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="427.0" layoutY="9.0" onMouseClicked="#handleSendEvent" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/icons8-sent.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <AnchorPane layoutY="-1.0" prefHeight="252.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane layoutY="-1.0" prefHeight="407.0" prefWidth="200.0" style="-fx-background-color: #581845;">
+                     <children>
+                        <ImageView fitHeight="207.0" fitWidth="194.0" layoutX="-1.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Downloads/Capture_d_écran__250_-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <VBox layoutX="200.0" prefHeight="26.0" prefWidth="400.0" style="-fx-background-color: #74575F;">
+               <children>
+                  <MenuBar style="-fx-background-color: #E8E1E1;">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem fx:id="loadMenuItem" mnemonicParsing="false" onAction="#loadFile" text="Load History" />
+                              <MenuItem fx:id="resetMenuItem" mnemonicParsing="false" onAction="#resetMsgRoom" text="Reset ChatArea" />
+                              <MenuItem fx:id="usersinfo" mnemonicParsing="false" onAction="#KeepTrackSignedUpUsers" text="SignedUpUsersInfo" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="BackgroundColor">
+                        <items>
+                          <MenuItem fx:id="colorMenuItem" mnemonicParsing="false" onAction="#changeColor" text="Color">
+                                 <graphic>
+                                    <ColorPicker fx:id="colorPicker" />
+                                 </graphic>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </VBox>
+            <TextField fx:id="username" layoutX="505.0" layoutY="27.0" prefHeight="12.0" prefWidth="82.0" promptText="username " />
+            <Label fx:id="clientName" layoutX="414.0" layoutY="27.0" text="Username:" textFill="#74575f">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
